@@ -1,0 +1,17 @@
+.thumbnail {
+    aspect-ratio: 16 / 9;
+    background: var(--gray-5);
+    border-radius: 4px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.content-card {
+    margin-top: -20px;
+    padding-inline: 4px;
+    cursor: pointer;
+}

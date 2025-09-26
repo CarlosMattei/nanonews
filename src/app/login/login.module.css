@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@media ( max-width: 425px ) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        height: 100vh;
+        padding-inline: 10px;
+    }
+}

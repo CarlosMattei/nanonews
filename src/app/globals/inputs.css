@@ -1,0 +1,81 @@
+input {
+    background-color: var(--gray-50);
+    border: 1px solid var(--gray-10);
+    border-radius: 0.50rem;
+    color: var(--white);
+    font-weight: var(--regular);
+    box-shadow: 0px 4px 10px -5px #000;
+    box-shadow: inset 0px -1px 0px var(--gray-10);
+    outline: none;
+    transition: 0.3s;
+    padding: 0.6rem 0rem;
+}
+
+.sm-input {
+    font-size: 0.75rem;
+}
+
+.md-input {
+    font-size: 0.875rem;
+}
+
+.lg-input {
+    font-size: 1rem;
+}
+
+.xl-input {
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+}
+
+input::placeholder {
+    color: var(--gray-5);
+    font-weight: var(--light);
+}
+
+input:hover {
+    border-color: var(--gray-5);
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--gray-5);
+}
+
+label {
+    font-size: 0.75rem;
+    font-weight: var(--medium);
+    display: block;
+    color: var(--white);
+}
+
+.input-icon {
+    align-items: center;
+    display: flex;
+    justify-content: start;
+    gap: 0.75rem;
+    background-color: var(--gray-50);
+    border: 1px solid var(--gray-10);
+    border-radius: 0.50rem;
+    color: var(--white);
+    font-weight: var(--regular);
+    box-shadow: 0px 4px 10px -5px #000;
+    box-shadow: inset 0px -1px 0px var(--gray-10);
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-ghost {
+    border: none;
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.input-icon .icon-container {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}

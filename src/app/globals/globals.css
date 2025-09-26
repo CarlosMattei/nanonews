@@ -1,0 +1,15 @@
+@import url('./normalize.css');
+@import url('./fonts.css');
+@import url('./colors.css');
+@import url('./buttons.css');
+@import url('./inputs.css');
+@import url('./colors-utils.css');
+@import url('./tags.css');
+@import url('./flex.css');
+@import url('spacing.css');
+@import url('border.css');
+
+@import url('./components/navbar.css');
+@import url('./components/slide.css');
+@import url('./components/card.css');
+@import url('./components/card-grid.css');

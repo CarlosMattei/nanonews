@@ -1,0 +1,86 @@
+button {
+    font-family: var(--ibm-prex-sans);
+    font-size: 16px;
+    line-height: 1.5rem;
+    border-radius: 0.9em;
+    padding: 0.9em 1.2em 0.9em 1em;
+    border: none;
+    font-weight: var(--medium);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.small {
+    font-size: 0.875rem;
+    padding: 0.6em 1em 0.6em 1em;
+}
+
+button.medium {
+    font-size: 1rem;
+    padding: 0.9em 1.2em 0.9em 1em;
+}
+
+button.large {
+    font-size: 1.125rem;
+    padding: 1.2em 1.5em 1.2em 1.5em;
+}
+
+.success-button {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.black-button {
+    background-color: #000;
+    color: var(--white);
+}
+
+.black-button:hover {
+    background-color: var(--gray-10);
+    color: var(--white);
+}
+
+.base-button {
+    background-color: var(--base);
+    color: var(--white);
+    border: 1px solid var(--base-hover);
+}
+
+.base-button:hover {
+    background-color: var(--base-hover);
+    color: var(--white);
+}
+
+.primary-button {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.primary-button:hover {
+    background-color: var(--blue-dark);
+    color: var(--white);
+}
+
+.alert-button {
+    background-color: var(--base);
+    color: var(--white);
+}
+
+.alert-button:hover {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.disable-button {
+    background-color: var(--gray-50);
+    color: var(--gray-5);
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.ghost-button {
+    background-color: transparent;
+    color: var(--white);
+    box-shadow: none;
+    border: 1px solid var(--white);
+}
