@@ -2,6 +2,26 @@
     display: flex;
 }
 
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-3 {
+    flex: 3;
+}
+
+.flex-4 {
+    flex: 4;
+}
+
+.aspect-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
 .flex-container {
     display: flex;
     flex-direction: column;

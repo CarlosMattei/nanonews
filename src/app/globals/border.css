@@ -1,20 +1,20 @@
-/* Espessuras de borda */
-.border-none { border: none; }
-.border { border-width: 1px; border-style: solid; }
-.border-2 { border-width: 2px; border-style: solid; }
-.border-4 { border-width: 4px; border-style: solid; }
-.border-8 { border-width: 8px; border-style: solid; }
+/* Espessuras de outline */
+.border-none { outline: none; }
+.border { outline: 1px solid; outline-offset: -1px; }
+.border-2 { outline: 2px solid; outline-offset: -2px; }
+.border-4 { outline: 4px solid; outline-offset: -4px; }
+.border-8 { outline: 8px solid; outline-offset: -8px; }
 
-/* Bordas por direção */
-.border-t { border-top-width: 1px; border-top-style: solid; }
-.border-r { border-right-width: 1px; border-right-style: solid; }
-.border-b { border-bottom-width: 1px; border-bottom-style: solid; }
-.border-l { border-left-width: 1px; border-left-style: solid; }
+/* Outlines por direção (note: outline não suporta direções individuais) */
+.border-t { outline: 1px solid; outline-width: 1px 0 0 0; outline-offset: -1px; }
+.border-r { outline: 1px solid; outline-width: 0 1px 0 0; outline-offset: -1px; }
+.border-b { outline: 1px solid; outline-width: 0 0 1px 0; outline-offset: -1px; }
+.border-l { outline: 1px solid; outline-width: 0 0 0 1px; outline-offset: -1px; }
 
-/* Estilos de borda */
-.border-solid { border-style: solid; }
-.border-dashed { border-style: dashed; }
-.border-dotted { border-style: dotted; }
+/* Estilos de outline */
+.border-solid { outline-style: solid; }
+.border-dashed { outline-style: dashed; }
+.border-dotted { outline-style: dotted; }
 
 /* Border radius */
 .rounded-none { border-radius: 0; }

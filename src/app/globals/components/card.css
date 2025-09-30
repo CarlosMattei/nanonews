@@ -15,3 +15,111 @@
     padding-inline: 4px;
     cursor: pointer;
 }
+
+.card-em-alta {
+    position: relative;
+    outline: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.card-em-alta .capa-card-em-alta {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.overlay-em-alta {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);;
+
+}
+
+.card-em-alta:hover {
+    outline: 1px solid var(--gray-5);
+    transform: scale(1.005);
+    transition: all 0.3s ease;
+}
+
+.card-ultima-em-alta {
+    position: relative;
+    outline: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.card-ultima-em-alta:hover {
+    outline: 1px solid var(--gray-5);
+    transform: scale(1.005);
+}
+
+.card-populares-da-semana {
+    border-top: 1px solid var(--gray-5);
+}
+
+.card-populares-da-semana img {
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: center;
+    max-width: 250px;
+    height: 100%;
+    width: 100%;
+    background-color: var(--gray-100);
+}
+
+.categorias-container a {
+    text-decoration: none;
+    color: var(--text-white);
+    padding-top: 4px;
+    padding-bottom: 10px;
+    border-top: 1px solid var(--gray-5);
+    transition: all 0.3s ease;
+}
+
+.categorias-container a:hover {
+    color: var(--gray-5);
+    transition: all 0.3s ease;
+}
+
+.card-populares-da-semana .link {
+    transition: all 0.3s ease;
+}
+
+.card-populares-da-semana .link:hover a {
+    color: var(--base);
+    transition: all 0.3s ease;
+}
+
+.card-populares-da-semana .link:hover {
+    gap: 16px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .highlights {
+        flex-direction: column;
+    }
+    .ultimas-em-alta h4 {
+        margin-top: 16px;
+    }
+
+    .card-populares-da-semana {
+        flex-direction: column;
+    }
+
+    .container-populares-da-semana {
+        flex-direction: column;
+    }
+
+    .card-populares-da-semana img {
+        max-width: 100%;
+    }
+}

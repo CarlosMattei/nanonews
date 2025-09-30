@@ -1,3 +1,9 @@
 .content {
   padding-inline: 30px;
 }
+
+@media (max-width: 768px) {
+    .content {
+        padding-inline: 10px;
+    }
+}

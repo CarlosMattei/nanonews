@@ -7,7 +7,7 @@ export default function Card() {
                 <div className="tags-container-card">
                     <div className="tag base">Startups</div>
                 </div>
-                <h4 className="titulo text-xl medium">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
+                <h4 className="titulo text-md medium">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
                 <p className="postagem-tempo text-xs thin text-gray-5">Publicado a 2 minutos</p>
             </div>
         </div>
