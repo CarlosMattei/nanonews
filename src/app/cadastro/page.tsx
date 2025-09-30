@@ -12,6 +12,12 @@ export default function CadastrarPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const handleGoogleLogin = () => {
+    const backendUrl =
+      process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+    window.location.href = `${backendUrl}/auth/google`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -30,7 +36,7 @@ export default function CadastrarPage() {
 
       alert("Cadastro realizado com sucesso!");
       // Preciso mandar isso para um redux ou urso, preciso decidir ainda
-      console.log(response.data.reponse[0]);
+      console.log(response.data.response);
     } catch (error: object | any) {
       console.log("Erro ao cadastrar:", error);
       if (error.status === 409) {
@@ -127,6 +133,7 @@ export default function CadastrarPage() {
             <button
               className="flex flex-row gap-8 w-full justify-center align-center"
               type="button"
+              onClick={() => handleGoogleLogin()}
             >
               <GoogleIcon size={18} />
               Continuar com o <span className="bold">Google</span>
