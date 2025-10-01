@@ -141,7 +141,7 @@ export default function CadastrarPage() {
           </div>
           <div className="registerLink pt-8 flex-container flex-row align-center justify-center">
             <p className="text-sm text-gray-5">
-              Já tem uma conta? <Link href="#">Entre.</Link>
+              Já tem uma conta? <Link href="/login">Entre.</Link>
             </p>
           </div>
         </form>
