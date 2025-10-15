@@ -53,7 +53,7 @@ export default function CadastrarPage() {
   };
 
   return (
-    <div className={styles.body}>
+    <div className={styles.cadastroPage}>
       <div className="cadastrar-container">
         <div className="header-cadastrar flex justify-center align-center flex-column">
           <div className="tag green text-xs">Iniciar sessão</div>

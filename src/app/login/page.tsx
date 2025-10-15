@@ -43,7 +43,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={style.body}>
+    <div className={style.loginPage}>
       <div className="login-container">
         <div className="header-login flex justify-center align-center flex-column">
           <div className="tag green text-xs">Iniciar sessão</div>

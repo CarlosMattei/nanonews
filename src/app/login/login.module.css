@@ -1,4 +1,4 @@
-body {
+.loginPage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@ body {
 }
 
 @media ( max-width: 425px ) {
-    body {
+    .loginPage {
         display: flex;
         justify-content: center;
         align-items: start;

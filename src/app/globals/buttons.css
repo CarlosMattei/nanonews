@@ -51,6 +51,16 @@ button.large {
     color: var(--white);
 }
 
+.gray-button {
+    background-color: var(--gray-10);
+    color: var(--white);
+}
+
+.gray-button:hover {
+    background-color: var(--gray-5);
+    color: var(--white);
+}
+
 .primary-button {
     background-color: var(--blue);
     color: var(--white);
@@ -84,3 +94,20 @@ button.large {
     box-shadow: none;
     border: 1px solid var(--white);
 }
+
+.square-button {
+    aspect-ratio: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+
+.square-button.small {
+    width: 2rem;
+    height: 2rem;
+}
+
