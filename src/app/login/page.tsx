@@ -6,10 +6,15 @@ import { GoogleIcon } from "@/components/googleIcon";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useUserStore } from "@/store/userStore";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const setUser = useUserStore((state) => state.setUser);
+  const router = useRouter();
+
   const handleGoogleLogin = () => {
     const backendUrl =
       process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
@@ -26,8 +31,8 @@ export default function LoginPage() {
       });
 
       toast.success("Login realizado com sucesso!");
-      // Preciso mandar isso para um redux ou urso, preciso decidir ainda
-      console.log(response.data.user);
+      setUser(response.data.user);
+      router.push("/");
     } catch (error: object | any) {
       console.log("Erro ao logar:", error);
       if (error.status === 401) {

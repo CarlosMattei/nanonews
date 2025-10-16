@@ -84,10 +84,10 @@ export function NavBar() {
                     </div>
                 </div>
                 <div className="button-container-mobile flex-container flex-colums pt-16 pb-16">
-                    <a href="#">
+                    <a href="/login">
                         <button className="button black-button w-full">Login</button>
                     </a>
-                    <a href="#">
+                    <a href="/cadastro">
                         <button className="button base-button w-full">Cadastro</button>
                     </a>
                 </div>

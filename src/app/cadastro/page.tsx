@@ -4,14 +4,18 @@ import { Mail, KeyRound } from "lucide-react";
 import Link from "next/link";
 import { GoogleIcon } from "@/components/googleIcon";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useUserStore } from "@/store/userStore";
 
 export default function CadastrarPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const setUser = useUserStore((state) => state.setUser);
+  const router = useRouter();
 
   const handleGoogleLogin = () => {
     const backendUrl =
@@ -36,8 +40,8 @@ export default function CadastrarPage() {
       });
 
       toast.success("Cadastro realizado com sucesso!");
-      // Preciso mandar isso para um redux ou urso, preciso decidir ainda
-      console.log(response.data.response);
+      setUser(response.data.response);
+      router.push("/");
     } catch (error: object | any) {
       console.log("Erro ao cadastrar:", error);
       if (error.status === 409) {
