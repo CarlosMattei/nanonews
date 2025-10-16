@@ -5,6 +5,7 @@ import Link from "next/link";
 import { GoogleIcon } from "@/components/googleIcon";
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -24,21 +25,21 @@ export default function LoginPage() {
         password,
       });
 
-      alert("Login realizado com sucesso!");
+      toast.success("Login realizado com sucesso!");
       // Preciso mandar isso para um redux ou urso, preciso decidir ainda
       console.log(response.data.user);
     } catch (error: object | any) {
       console.log("Erro ao logar:", error);
       if (error.status === 401) {
-        alert("Senha ou email incorretos. Tente outros.");
+        toast.warning("Senha ou email incorretos. Tente outros.");
         return;
       } else if (error.status === 500) {
-        alert(
+        toast.warn(
           "Provavelmente o servidor está offline, tente novamente mais tarde ou ligue o servidor..."
         );
         return;
       }
-      alert("Erro ao realizar login. Tente novamente.");
+      toast.error("Erro ao realizar login. Tente novamente.");
     }
   };
 

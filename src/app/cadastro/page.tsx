@@ -5,6 +5,7 @@ import Link from "next/link";
 import { GoogleIcon } from "@/components/googleIcon";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function CadastrarPage() {
   const [name, setName] = useState("");
@@ -22,7 +23,7 @@ export default function CadastrarPage() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("As senhas não coincidem!");
+      toast.warn("As senhas não coincidem!");
       return;
     }
 
@@ -34,21 +35,21 @@ export default function CadastrarPage() {
         confirmPassword,
       });
 
-      alert("Cadastro realizado com sucesso!");
+      toast.success("Cadastro realizado com sucesso!");
       // Preciso mandar isso para um redux ou urso, preciso decidir ainda
       console.log(response.data.response);
     } catch (error: object | any) {
       console.log("Erro ao cadastrar:", error);
       if (error.status === 409) {
-        alert("Email já cadastrado. Tente outro.");
+        toast.warning("Email já cadastrado. Tente outro.");
         return;
       } else if (error.status === 500) {
-        alert(
+        toast.warn(
           "Provavelmente o servidor está offline, tente novamente mais tarde ou ligue o servidor..."
         );
         return;
       }
-      alert("Erro ao realizar cadastro. Tente novamente.");
+      toast.error("Erro ao realizar cadastro. Tente novamente.");
     }
   };
 
