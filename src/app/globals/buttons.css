@@ -95,6 +95,11 @@ button.large {
     border: 1px solid var(--white);
 }
 
+.ghost-button:hover {
+    background-color: var(--gray-10);
+    color: var(--white);
+}
+
 .square-button {
     aspect-ratio: 1;
     width: 2.5rem;

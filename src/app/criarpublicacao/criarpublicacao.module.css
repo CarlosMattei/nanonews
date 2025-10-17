@@ -1,3 +1,7 @@
+body {
+    margin-bottom: 80px;
+}
+
 .editorDePublicacao {
     display: flex;
     width: 100%;
@@ -59,7 +63,6 @@
     height: 100%;
     position: fixed;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.5);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -104,4 +107,42 @@
     max-width: 830px;
     margin: 0 auto;
     display: none;
+}
+
+.imagePreview {
+    width: 100%;
+}
+
+.imagePreview img {
+    border-radius: 15px;
+}
+
+.imagePreviewOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+    border-radius: 15px;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+}
+
+.imagePreviewContainer:hover .imagePreviewOverlay {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.imagePreviewContainer {
+    position: relative;
+    width: 100%;
 }

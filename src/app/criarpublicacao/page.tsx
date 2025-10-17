@@ -4,6 +4,7 @@ import { ArrowLeft, ImageUp } from 'lucide-react';
 import { useRef, useEffect, useState } from "react";
 import IslandMenu from '@/components/islandMenu';
 import styles from './criarpublicacao.module.css';
+import Image from 'next/image';
 
 export default function CriarPublicacaoPage() {
     const refDescricao = useRef<HTMLTextAreaElement | null>(null);
@@ -93,8 +94,20 @@ export default function CriarPublicacaoPage() {
                     <p className="text-xs text-gray-5">ou</p>
                     <button className="base-button small">Adicionar imagem</button>
                     </div>
-                    <div className="ImagePreview">
-                        { /* Preview da imagem carregada aparecerá aqui */ }
+                    <div className={`${styles.imagePreviewContainer}`}>
+                        <div className={`${styles.imagePreview}`}>
+                            <Image
+                            src="/capas/Whisk_92d1e73ad296b0aa7784b90ab65ac4f7dr.jpeg"
+                            alt="Imagem de exemplo de publicação"
+                            layout="responsive"
+                            width={1000}
+                            height={1000}
+                            />
+                        </div>
+                        <div className={`${styles.imagePreviewOverlay} gap-8 pb-8`}>
+                            <button className='ghost-button small'>Remover</button>
+                            <button className='ghost-button small'>Alterar</button>
+                        </div>
                     </div>
                 </div>
             </div>

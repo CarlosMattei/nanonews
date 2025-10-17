@@ -41,7 +41,6 @@ export default function IslandMenu() {
                     <button className="texto gray-button gap-8 flex flex-row small w-full"><Text size={20}/>Texto</button>
                     <button className="titulo gray-button gap-8 flex flex-row small w-full"><TextInitial size={20}/>Título</button>
                     <button className="lista gray-button gap-8 flex flex-row small w-full"><List size={20}/>Lista</button>
-                    <button className="citacao gray-button gap-8 flex flex-row small w-full"><Quote size={20}/> Citação</button>
                 </div>
             </div>
             <div className="IslandMenu flex flex-row gap-8 p-8 border border-solid text-gray-5 bg-gray-100 rounded-xl">
