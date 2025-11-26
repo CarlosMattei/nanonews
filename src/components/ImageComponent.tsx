@@ -1,20 +1,25 @@
 import { ImageUp } from "lucide-react";
 import Image from "next/image";
 import styles from "./../app/criarpublicacao/criarpublicacao.module.css";
-import { useState } from "react";
 
 interface ImageComponentProps {
   src?: string;
   alt?: string;
+  value: string;
+  onChange: (value: string) => void;
 }
 
-export default function ImageComponent({ src, alt }: ImageComponentProps) {
+export default function ImageComponent({
+  src,
+  alt,
+  value,
+  onChange,
+}: ImageComponentProps) {
   const fotoDoCarlos = "/capas/Whisk_92d1e73ad296b0aa7784b90ab65ac4f7dr.jpeg";
-  const [urlImage, setUrlImage] = useState<string>(src || "");
 
   return (
     <div className="imageComponent">
-      {urlImage == "" ? (
+      {value === "" ? (
         <div
           className={`imageUploader flex flex-column ${styles.imageUploader} justify-center align-center gap-8 p-12 border-2 border-dashed text-gray-10 rounded-lg`}
         >
@@ -25,7 +30,7 @@ export default function ImageComponent({ src, alt }: ImageComponentProps) {
           <p className="text-xs text-gray-5">ou</p>
           <button
             className="base-button small"
-            onClick={() => setUrlImage(fotoDoCarlos)}
+            onClick={() => onChange(fotoDoCarlos)}
           >
             Adicionar imagem
           </button>
@@ -34,16 +39,12 @@ export default function ImageComponent({ src, alt }: ImageComponentProps) {
         <div className={`${styles.imagePreviewContainer}`}>
           <div className={`${styles.imagePreview}`}>
             <Image
-              src={src || fotoDoCarlos}
+              src={value || fotoDoCarlos}
               alt={alt || "Imagem"}
               layout="responsive"
               width={1000}
-              height={1000}
+              height={500}
             />
-          </div>
-          <div className={`${styles.imagePreviewOverlay} gap-8 pb-8`}>
-            <button className="ghost-button small">Remover</button>
-            <button className="ghost-button small">Alterar</button>
           </div>
         </div>
       )}

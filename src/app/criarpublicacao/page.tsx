@@ -8,11 +8,15 @@ import TitleComponent from "@/components/TitleComponent";
 import TextComponent from "@/components/TextComponent";
 import ListComponent from "@/components/ListComponent";
 import ImageComponent from "@/components/ImageComponent";
+import axios from "axios";
 import styles from "./criarpublicacao.module.css";
+import { toast } from "react-toastify";
+import { useUserStore } from "@/store/userStore";
 
 interface Component {
   type: "text" | "title" | "list" | "image";
   id: number;
+  content: string;
 }
 
 export default function CriarPublicacaoPage() {
@@ -22,6 +26,8 @@ export default function CriarPublicacaoPage() {
   const [title, setTitle] = useState("Sem título");
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [isEditingMainTitle, setIsEditingMainTitle] = useState(false);
+  const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+  const user = useUserStore((state) => state.user);
 
   const autoResize = (ref: React.RefObject<HTMLTextAreaElement | null>) => {
     const el = ref.current;
@@ -35,19 +41,60 @@ export default function CriarPublicacaoPage() {
   }, []);
 
   const addComponent = (type: Component["type"]) => {
-    setComponents([...components, { type, id: Date.now() }]);
+    setComponents([...components, { type, id: Date.now(), content: "" }]);
+  };
+
+  const updateComponentContent = (id: number, content: string) => {
+    setComponents((prevComponents) =>
+      prevComponents.map((component) =>
+        component.id === id ? { ...component, content } : component
+      )
+    );
   };
 
   const renderComponent = (component: Component) => {
     switch (component.type) {
       case "text":
-        return <TextComponent key={component.id} autoResize={autoResize} />;
+        return (
+          <TextComponent
+            key={component.id}
+            autoResize={autoResize}
+            value={component.content}
+            onChange={(e) =>
+              updateComponentContent(component.id, e.target.value)
+            }
+          />
+        );
       case "title":
-        return <TitleComponent key={component.id} autoResize={autoResize} />;
+        return (
+          <TitleComponent
+            key={component.id}
+            autoResize={autoResize}
+            value={component.content}
+            onChange={(e) =>
+              updateComponentContent(component.id, e.target.value)
+            }
+          />
+        );
       case "list":
-        return <ListComponent key={component.id} autoResize={autoResize} />;
+        return (
+          <ListComponent
+            key={component.id}
+            autoResize={autoResize}
+            value={component.content}
+            onChange={(e) =>
+              updateComponentContent(component.id, e.target.value)
+            }
+          />
+        );
       case "image":
-        return <ImageComponent key={component.id} />;
+        return (
+          <ImageComponent
+            key={component.id}
+            value={component.content}
+            onChange={(value) => updateComponentContent(component.id, value)}
+          />
+        );
       default:
         return null;
     }
@@ -75,6 +122,48 @@ export default function CriarPublicacaoPage() {
 
   const handleMainTitleBlur = () => {
     setIsEditingMainTitle(false);
+  };
+
+  const saveArticle = async () => {
+    try {
+      const articleData = {
+        headline: title || "Sem título",
+        createdAt: new Date().toISOString(),
+        authorId: user?.id ,
+      };
+
+      const contentData = components.map((component, index) => ({
+        order: index + 1,
+        typeComponent: component.type,
+        content: component.content,
+      }));
+
+      const payload = {
+        article: articleData,
+        content: contentData,
+      };
+
+      try {
+        const response = await axios.post(
+          `${backendUrl}/articles`,
+          payload
+        );
+
+        if (response.status === 200) {
+          toast.success("Artigo salvo com sucesso!");
+          router.push("/");
+        }
+      } catch (error) {
+        console.error(
+          "Erro ao salvar o artigo (banco de dados / backend):",
+          error
+        );
+        toast.error("Erro ao salvar o artigo no servidor. Tente novamente.");
+      }
+    } catch (err) {
+      console.error("Erro ao salvar o artigo (total):", err);
+      toast.error("Erro ao salvar o artigo. Tente novamente.");
+    }
   };
 
   return (
@@ -113,7 +202,9 @@ export default function CriarPublicacaoPage() {
           <div className="status">
             <p className="text-sm text-gray-5">Projeto não salvo</p>
           </div>
-          <button className="base-button small">Salvar</button>
+          <button className="base-button small" onClick={saveArticle}>
+            Salvar
+          </button>
         </div>
       </div>
 
